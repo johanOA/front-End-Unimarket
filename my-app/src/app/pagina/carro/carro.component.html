@@ -1,0 +1,21 @@
+<div class="cart">
+  <h2 class="cart-title">Carrito de compras</h2>
+  <ul class="cart-list">
+    <li *ngFor="let item of items" class="cart-item">
+      <span class="cart-item-name">{{ item.name }}</span>
+      <span class="cart-item-price">{{ item.price }}€</span>
+      <div class="cart-item-quantity">
+        <button class="cart-item-btn" (click)="removeItem(item)">-</button>
+        <span class="cart-item-quantity-value">{{ item.quantity }}</span>
+        <button class="cart-item-btn" (click)="addItem(item)">+</button>
+      </div>
+      <button class="cart-item-remove" (click)="removeItem(item)">Eliminar</button>
+    </li>
+  </ul>
+  <div class="cart-footer">
+    <p class="cart-total">Total: {{ total }}€</p>
+    <button class="cart-checkout" [disabled]="items.length === 0" (click)="checkout()">Comprar</button>
+  </div>
+</div>
+
+

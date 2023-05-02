@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Mi sitio web</title>
+    <link rel="stylesheet" href="app.component.css">
+  </head>
+  <body>
+    <header>
+      <p>Página inicial de {{title}}</p>
+      <ul>
+        <li><a routerLink="">Inicio</a></li>
+        <li><a routerLink="/login">Login</a></li>
+        <li><a routerLink="/registro">Registro</a></li>
+        <li><a routerLink="/carro">Carrito</a></li>
+      </ul>
+    </header>
+    <router-outlet></router-outlet>
+    <footer>
+      <p>Universidad del Quindío - 2023</p>
+    </footer>
+  </body>
+</html>
