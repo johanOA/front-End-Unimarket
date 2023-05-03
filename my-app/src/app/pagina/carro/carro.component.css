@@ -1,3 +1,15 @@
+@media (min-width: 1025px) {
+  .h-custom {
+  height: 100vh !important;
+  }
+  }
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'calibri';
+}
+
 .cart {
   border: 1px solid #ccc;
   padding: 10px;
@@ -88,4 +100,4 @@
 .cart-checkout:disabled {
   opacity: 0.5;
   cursor: not-allowed;
-}
+} */
