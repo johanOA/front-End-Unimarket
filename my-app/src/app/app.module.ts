@@ -11,6 +11,7 @@ import { NotFoundComponent } from './pagina/not-found/not-found.component';
 import { SearchComponent } from './pagina/search/search.component';
 import { ProfileComponent } from './pagina/profile/profile.component';
 import { FavoritosComponent } from './pagina/favoritos/favoritos.component';
+import { NotificacionesComponent } from './pagina/notificaciones/notificaciones.component';
 
   @NgModule({
     declarations: [
@@ -22,7 +23,8 @@ import { FavoritosComponent } from './pagina/favoritos/favoritos.component';
       NotFoundComponent,
       SearchComponent,
       ProfileComponent,
-      FavoritosComponent
+      FavoritosComponent,
+      NotificacionesComponent
     ],
     imports: [
       BrowserModule,

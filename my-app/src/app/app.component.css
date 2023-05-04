@@ -34,3 +34,12 @@ header {
     background-color: #f9f9f9;
     padding: 20px;
   }
+  .form-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .input-group {
+    max-width: 400px;
+  }
