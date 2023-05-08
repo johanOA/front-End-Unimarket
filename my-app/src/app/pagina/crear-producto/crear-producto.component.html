@@ -1,0 +1,51 @@
+<form >
+  <div>
+    <label >Nombre: </label>
+    <input type="text" />
+  </div>
+
+  <div>
+    <label >Descripcion: </label>
+    <input type="text" />
+  </div>
+
+  <div>
+    <label >Precio: </label>
+    <input type="number" />
+  </div>
+
+  <div>
+    <label >Unidades: </label>
+    <input type="number" />
+  </div>
+  <div>
+    <label >Imagen: </label>
+    <input type="file" (change)="onFileChange($event)" multiple />
+  </div>
+
+  <div>
+    <label>Categoría: </label>
+    <div>
+      <input type="checkbox" id="tecnologia" name="categoria[]" value="tecnologia">
+      <label for="tecnologia">Tecnología</label>
+    </div>
+    <div>
+      <input type="checkbox" id="hogar" name="categoria[]" value="hogar">
+      <label for="hogar">Hogar</label>
+    </div>
+    <div>
+      <input type="checkbox" id="deportes" name="categoria[]" value="deportes">
+      <label for="deportes">Deportes</label>
+    </div>
+    <div>
+      <input type="checkbox" id="moda" name="categoria[]" value="moda">
+      <label for="moda">Moda</label>
+    </div>
+    <div>
+      <input type="checkbox" id="mascotas" name="categoria[]" value="mascotas">
+      <label for="mascotas">Mascotas</label>
+    </div>
+  </div>
+
+  <button type="submit" >Crear nuevo producto</button>
+</form>
