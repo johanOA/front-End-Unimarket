@@ -1,51 +1,68 @@
-<form >
-  <div>
-    <label >Nombre: </label>
-    <input type="text" />
-  </div>
+<section>
+  <div class="container">
+    <header>Publish new product</header>
+    <form #f="ngForm" (ngSubmit)="crearProducto()">
 
-  <div>
-    <label >Descripcion: </label>
-    <input type="text" />
-  </div>
+        <div class="form first">
+            <div class="details personal">
 
-  <div>
-    <label >Precio: </label>
-    <input type="number" />
-  </div>
+                <span class="title">Product details</span>
 
-  <div>
-    <label >Unidades: </label>
-    <input type="number" />
-  </div>
-  <div>
-    <label >Imagen: </label>
-    <input type="file" (change)="onFileChange($event)" multiple />
-  </div>
+                <div class="fields">
+                    <div class="input-field">
+                        <label>Name</label>
+                        <input type="text" placeholder="Name of the product" name="nombre" [(ngModel)]="producto.nombre" required>
+                    </div>
 
-  <div>
-    <label>Categoría: </label>
-    <div>
-      <input type="checkbox" id="tecnologia" name="categoria[]" value="tecnologia">
-      <label for="tecnologia">Tecnología</label>
-    </div>
-    <div>
-      <input type="checkbox" id="hogar" name="categoria[]" value="hogar">
-      <label for="hogar">Hogar</label>
-    </div>
-    <div>
-      <input type="checkbox" id="deportes" name="categoria[]" value="deportes">
-      <label for="deportes">Deportes</label>
-    </div>
-    <div>
-      <input type="checkbox" id="moda" name="categoria[]" value="moda">
-      <label for="moda">Moda</label>
-    </div>
-    <div>
-      <input type="checkbox" id="mascotas" name="categoria[]" value="mascotas">
-      <label for="mascotas">Mascotas</label>
-    </div>
-  </div>
+                    <div class="input-field">
+                        <label>Description</label>
+                        <input name="descripcion" placeholder="Description product" [(ngModel)]="producto.descripcion" required>
+                    </div>
 
-  <button type="submit" >Crear nuevo producto</button>
-</form>
+                    <div class="input-field">
+                        <label>Price</label>
+                        <input type="number" name="precio" [(ngModel)]="producto.precio" required>
+                    </div>
+
+                    <div class="input-field">
+                        <label>Units</label>
+                        <input type="number" name="unidades" [(ngModel)]="producto.unidades" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="details ID">
+                <span class="title">Product identity</span>
+
+                <div class="fields">
+                    <div class="input-field">
+                        <label>Image</label>
+                        <input type="file" name="imagenes" (change)="onFileChange($event)" multiple>
+                    </div>
+                    <div class="dropdown" [class.open]="isDropdownOpen">
+                      <div class="wrapper">
+                        <label>Category</label>
+                        <div class="dropdown" [class.open]="isDropdownOpen">
+                          <button class="dropdown-toggle" type="button" (click)="toggleDropdown()">
+                            Select a category
+                            <span class="caret"></span>
+                          </button>
+                          <div class="dropdown-menu">
+                            <div *ngFor="let categoria of categorias; let i = index">
+                              <input type="checkbox" id="categoria{{i}}" name="categorias" [value]="categoria" [(ngModel)]="categoriaSeleccionada[categoria]" (ngModelChange)="onCategoriaChange()">
+                              <label for="categoria{{i}}">{{categoria}}</label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <button class="nextBtn" type="submit" [disabled]="f.invalid">
+                    <span class="btnText" >Create new product</span>
+                    <i class="uil uil-navigator"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+  </div>
+</section>

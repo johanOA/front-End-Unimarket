@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { UsuarioDTO } from 'src/app/modelo/usuario-dto';
+import { AuthService } from '../../servicios/auth.service';
+import { Alerta } from 'src/app/modelo/alerta';
 
 @Component({
   selector: 'app-registro',
@@ -7,12 +9,24 @@ import { UsuarioDTO } from 'src/app/modelo/usuario-dto';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent {
-  usuario:UsuarioDTO
-  constructor(){
+  usuario:UsuarioDTO;
+  alerta!:Alerta;
+
+  constructor(private authService:AuthService){
     this.usuario = new UsuarioDTO;
   }
   public registrar(){
-    console.log(this.usuario);
+
+    const objeto = this;
+
+    this.authService.registrar(this.usuario).subscribe({
+      next: data => {
+        objeto.alerta = new Alerta(data.respuesta, "success");
+      },
+      error: error => {
+        objeto.alerta = new Alerta(error.respuesta, "danger");
+      }
+    });
   }
   public sonIguales():boolean{
     return this.usuario.password == this.usuario.repeatPass;

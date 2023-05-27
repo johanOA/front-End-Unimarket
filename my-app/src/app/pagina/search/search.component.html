@@ -1,1 +1,33 @@
-<p>search works!</p>
+<!-- products section start -->
+<section class="products" id="products">
+
+  <div class="container">
+    <form action="" class="search-bar" (submit)="iraBusqueda(textoBusqueda.value)">
+      <input #textoBusqueda type="search" placeholder="Find a product you might like" name="buscar">
+      <button type="submit"><img src="../../../assets/img/busqueda-de-lupa.png" alt=""></button>
+    </form>
+  </div>
+  <router-outlet></router-outlet>
+  <h1 class="heading"> Products or product <span>found</span> </h1>
+
+  <div class="box-conteiner" *ngFor="let item of filtro">
+    <!-- card 1 starts-->
+    <div class="box">
+      <span class="discount">Possible discount</span>
+      <div class="image">
+        <img src="{{item.imagen[0]}}" alt="">
+        <div class="icons">
+          <a href="#" class="fas fa-heart"></a>
+          <a href="#" class="cart-btn">add to cart</a>
+          <a href="#" class="fas fa-share"></a>
+        </div>
+      </div>
+      <div class="content">
+        <a href=""><h3>{{item.nombre}}</h3></a>
+        <div class="price">$ {{item.precio}}<span>Possible discount</span> </div>
+      </div>
+    </div>
+    <!-- card 1 ends-->
+  </div>
+</section>
+<!-- product section ends -->

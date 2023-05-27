@@ -1,15 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="registro.component.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" integrity="sha512-bKjyPITIyKngvJ/dnDp8l0jTkK+ZlLz2sWYB3H2QaDWxKjmwYNdq9Wd/P8Izz6++rUfZGv6EwU6fnB4NN1V4ug==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" integrity="sha512-gd54m0p+LjcWWHxVlDl2jXtE3qoFfbnScVLZnhKUsheA7n+YiFXu4jr4LZYunXuX7K8zeQhIVZC5H5z5E5doFw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <title>Formulario Registro</title>
-</head>
 <body>
   <section class="vh-100" style="background-color: #eee;">
     <div class="container h-100">
@@ -87,7 +75,7 @@
                       [disabled]="f.invalid || !sonIguales()"
                       class="btn btn-primary btn-lg">Register</button>
                     </div>
-
+                    <app-alerta [alerta]="alerta"></app-alerta>
                   </form>
 
                 </div>
@@ -105,4 +93,3 @@
     </div>
   </section>
 </body>
-</html>

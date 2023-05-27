@@ -3,7 +3,8 @@ export class ProductoDTO {
     descripcion:string = "";
     unidades:number = 0;
     precio:number = 0;
-    direccion:string = "";
-    telefono:string = "";
-    password:string = "";
+    calificacion:number = 0;
+    codigoVendedor:number = 0;
+    imagen: string[] = [];
+    categoria: string[] = [];
 }

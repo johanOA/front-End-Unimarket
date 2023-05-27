@@ -1,172 +1,33 @@
-<!-- Font Awesome -->
-<link
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-  rel="stylesheet"
-/>
-<!-- Google Fonts -->
-<link
-  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-  rel="stylesheet"
-/>
-<!-- MDB -->
-<link
-  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css"
-  rel="stylesheet"
-/>
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Mi sitio web</title>
-    <link rel="stylesheet" href="app.component.css">
-  </head>
-  <body>
-    <header>
-        <!-- <p>{{title}}</p> -->
-      <nav class="navbar navbar-expand-lg navbar-light bg-white">
-        <!-- Container wrapper -->
-        <div class="container-fluid">
-          <!-- Toggle button -->
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-mdb-toggle="collapse"
-            data-mdb-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <i class="fas fa-bars"></i>
-          </button>
+<!-- font awesome cdn link -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">79
+<!-- header section starts -->
+<header>
+    <input type="checkbox" name="" id="toggler">
+    <label for="toggler" class="fas fa-bars"></label>
+    <a href="#" class="logo">miMarket<span>.</span></a>
 
-          <!-- Collapsible wrapper -->
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Navbar brand -->
-            <!-- <a class="navbar-brand mt-2 mt-lg-0" href="#">
-              <img
-                src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
-                height="15"
-                alt="MDB Logo"
-                loading="lazy"
-              />
-            </a> -->
-            <!-- Left links -->
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" href="#" routerLink="">Inicio</a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" href="#" routerLink="/login">Login</a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" href="#" routerLink="/registro">Registro</a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" href="#" routerLink="/crear-producto">Crear Producto</a>
-              </li>
-
-            </ul>
-            <!-- Left links -->
-            <div class="form-group">
-              <form class="d-flex input-group w-auto">
-                <input
-                  type="search"
-                  class="form-control"
-                  placeholder="Buscar Producto."
-                  aria-label="Search"
-                />
-                <button
-                  class="btn btn-outline-primary"
-                  type="button"
-                  data-mdb-ripple-color="dark"
-                >
-                </button>
-              </form>
-            </div>
-          </div>
-          <!-- Collapsible wrapper -->
-
-          <!-- Right elements -->
-          <div class="d-flex align-items-center">
-            <!-- Icon -->
-            <li>
-              <a class="link-secondary me-3" href="#" routerLink="/carro">
-                <i class="fas fa-shopping-cart"></i>
-              </a>
-            </li>
-            <!-- Notifications -->
-            <div class="dropdown">
-              <a
-                class="link-secondary me-3 dropdown-toggle hidden-arrow"
-                href="#"
-                id="navbarDropdownMenuLink"
-                role="button"
-                data-mdb-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <i class="fas fa-bell"></i>
-                <span class="badge rounded-pill badge-notification bg-danger">1</span>
-              </a>
-              <ul
-                class="dropdown-menu dropdown-menu-end"
-                aria-labelledby="navbarDropdownMenuLink"
-              >
-                <li>
-                  <a class="dropdown-item" href="#">Some news</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">Another news</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
-              </ul>
-            </div>
-            <!-- Avatar -->
-            <div class="dropdown">
-              <a
-                class="dropdown-toggle d-flex align-items-center hidden-arrow"
-                href="#"
-                id="navbarDropdownMenuAvatar"
-                role="button"
-                data-mdb-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <img
-                  src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-                  class="rounded-circle"
-                  height="25"
-                  alt="Black and White Portrait of a Man"
-                  loading="lazy"
-                />
-              </a>
-              <ul
-                class="dropdown-menu dropdown-menu-end"
-                aria-labelledby="navbarDropdownMenuAvatar"
-              >
-                <li>
-                  <a class="dropdown-item" href="#">My profile</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">Settings</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">Logout</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!-- Right elements -->
+    <nav class="navbar">
+      <a href="#home" routerLink="">Home </a>
+      <!-- <a href="#shop">Shop! </a> -->
+      <a href="#products">My Products </a>
+      <a href="#purchaes">My purchases </a>
+      <a href="#Create" routerLink="/crear-producto">Create </a>
+      <a href="#about" routerLink="/about">About </a>
+    </nav>
+    <div class="icons">
+      <div class="dropdown">
+        <a href="#" class="fas fa-user"></a>
+        <div class="dropdown-content">
+          <a href="#account" routerLink="/account">Account</a>
+          <a href="#login" routerLink="/login">Login</a>
+          <a href="#logout">Logout</a>
         </div>
-        <!-- Container wrapper -->
-      </nav>
-      <!-- Navbar-->
-    </header>
-    <router-outlet>
-      <div  style="max-width: 500px; margin: 0 auto;"></div>
-    </router-outlet>
-  </body>
-</html>
+      </div>
+   </div>
+    <div class="icons">
+      <a href="#" class="fas fa-heart"></a>
+      <a href="#" routerLink="/carro" class="fas fa-shopping-cart"></a>
+    </div>
+</header>
+<router-outlet></router-outlet>
+<!-- header section ends -->
