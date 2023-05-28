@@ -58,7 +58,9 @@
                     </div>
                 </div>
                 <button class="nextBtn" type="submit" [disabled]="f.invalid">
-                    <span class="btnText" >Create new product</span>
+                    <span class="btnText">
+                      <i class="fa-solid {{esEdicion ? 'fa-pencil' : 'fa-circle-plus'}} me-1"></i>
+                      {{ esEdicion ? 'Edit' : 'Creat' }} product</span>
                     <i class="uil uil-navigator"></i>
                 </button>
             </div>

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ProductoDTO } from 'src/app/modelo/producto-dto';
+import { ProductoService } from 'src/app/servicios/producto.service';
 
 @Component({
   selector: 'app-crear-producto',
@@ -8,15 +10,26 @@ import { ProductoDTO } from 'src/app/modelo/producto-dto';
 })
 export class CrearProductoComponent {
 
+  esEdicion: boolean;
   producto: ProductoDTO;
   categorias: string[];
   archivos!: FileList;
   isDropdownOpen: boolean = false;
   categoriaSeleccionada: { [categoria: string]: boolean } = {};
+  codigoProducto!:number;
 
-  constructor() {
+  constructor(private route:ActivatedRoute, private productoService:ProductoService) {
+    this.esEdicion = false;
     this.categorias = [];
     this.cargarCategorias();
+    this.route.params.subscribe(params => {
+      this.codigoProducto = params["codigo"];
+      let objetoProducto = this.productoService.obtener(this.codigoProducto);
+      if(objetoProducto != null){
+        this.producto = objetoProducto;
+        this.esEdicion = true;
+      }
+    });
     this.producto = new ProductoDTO();
   }
 
@@ -46,6 +59,7 @@ export class CrearProductoComponent {
     this.categorias.push('SALUD');
     this.categorias.push('');
   }
+
 
   toggleDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;

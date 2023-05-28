@@ -1,7 +1,7 @@
 <section class="section">
   <div class="card p-4">
     <div class="mb-3">
-      <button type="button" class="btn btn-success me-2">
+      <button type="button" class="btn btn-success me-2" routerLink="/crear-producto">
         <i class="fas fa-plus me-1"></i>Create
       </button>
       <button type="button" class="btn btn-danger" [disabled]="seleccionados.length == 0" data-bs-toggle="modal" data-bs-target="#borrarModal" (click)="mostrarVentanaEmergente()">
@@ -36,7 +36,7 @@
           <td><img [src]="item.imagen[0]" width="120" /></td>
           <td><p>{{item.categoria}}</p></td>
           <td>
-            <button type="button" class="btn btn-warning rounded-circle me-2">
+            <button type="button" class="btn btn-warning rounded-circle me-2" routerLink="/editar-producto/{{item.codigo}}">
               <i class="fas fa-pencil-alt"></i>
             </button>
           </td>
@@ -50,7 +50,7 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="borrarModalLabel">Eliminar producto</h1>
+          <h1 class="modal-title fs-5" id="borrarModalLabel">Remove product</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -58,7 +58,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-          <button type="button" class="btn btn-danger" (click)="confirmarEliminacion()" data-bs-dismiss="modal">Sí</button>
+          <button type="button" class="btn btn-danger" (click)="confirmarEliminacion()" data-bs-dismiss="modal">Yes</button>
         </div>
       </div>
     </div>

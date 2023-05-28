@@ -38,4 +38,7 @@ export class ProductoService {
   public listar():ProductoGetDTO[]{
     return this.productos;
   }
+  public obtener(codigo:number):ProductoGetDTO | undefined{
+    return this.productos.find(p => p.codigo == codigo);
+    }
 }

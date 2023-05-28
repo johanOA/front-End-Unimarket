@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: "products", component: ProductsComponent },
   { path: "busqueda/:texto", component: SearchComponent },
   { path: "account", component: GestionProductosComponent },
+  { path: "editar-producto/:codigo", component:CrearProductoComponent },
   { path: "**", pathMatch: "full", redirectTo: "" }
 ];
 
