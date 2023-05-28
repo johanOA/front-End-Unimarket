@@ -1,20 +1,37 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { TokenService } from './servicios/token.service';
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+selector: 'app-root',
+templateUrl: './app.component.html',
+styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'Unimarket';
+export class AppComponent implements OnInit{
+[x: string]: any;
+title = 'Unimarket';
+isLogged = false;
+email:string = "";
+constructor(private tokenService:TokenService) { }
 
-  handleDocumentClick(event: MouseEvent) {
-    const dropdowns = document.getElementsByClassName("dropdown-content");
-    for (let i = 0; i < dropdowns.length; i++) {
-      const openDropdown = dropdowns[i] as HTMLElement;
-      if (openDropdown.style.display === "block" && !openDropdown.parentNode?.contains(event.target as Node)) {
-        openDropdown.style.display = "none";
-      }
+ngOnInit(): void {
+    const objeto = this;
+    this['sesionService'].currentMessage.subscribe({
+    next: (data: boolean) => {
+    objeto.actualizarSesion(data);
     }
-  }
+    });
+    this.actualizarSesion(this.tokenService.isLogged());
+    }
+public logout(){
+this.tokenService.logout();
+}
+
+private actualizarSesion(estado: boolean) {
+    this.isLogged = estado;
+    if (estado) {
+    this.email = this.tokenService.getEmail();
+    }else{
+        this.email = "";
+}
+}
+
 }

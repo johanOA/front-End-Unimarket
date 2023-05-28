@@ -2,6 +2,20 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">79
 <!-- header section starts -->
 <header>
+  <div *ngIf="!isLogged; then nologged else logged"></div>
+  <ng-template #nologged>
+    <div class="text-end">
+      <button type="button" routerLink="/login" class="btn btn-outline-light
+        me-2">Login</button>
+      <button type="button" routerLink="/registro" class="btn btn-warning">Sign-up</button>
+      </div>
+      </ng-template>
+      <ng-template #logged>
+      <div class="text-end">
+      <label class="me-3" >Hola {{email}}</label>
+      <button type="button" (click)="logout()" class="btn btn-warning">Logout</button>
+      </div>
+       </ng-template>
     <input type="checkbox" name="" id="toggler">
     <label for="toggler" class="fas fa-bars"></label>
     <a href="#" class="logo">miMarket<span>.</span></a>

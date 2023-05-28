@@ -8,6 +8,16 @@ const TOKEN_KEY = "AuthToken";
   providedIn: 'root'
 })
 export class TokenService {
+  
+  public getRole():string[]{
+    const token = this.getToken();
+    if(token){
+    const values = this.decodePayload(token);
+    return values.roles;
+    }
+    return [];
+    }
+  sesionService: any;
 
   constructor(private router: Router) { }
 
@@ -26,15 +36,28 @@ export class TokenService {
     return false;
   }
 
-  public login(token:string) {
-    this.setToken(token);
-    this.router.navigate(["/"]);
-  }
+  public getEmail():string{
+    const token = this.getToken();
+    if(token){
+    const values = this.decodePayload(token);
+    return values.sub;
+    }
+    return "";
+    }
 
-  public logout() {
-    window.sessionStorage.clear();
-    this.router.navigate(["/login"]);
-  }
+    
+    public logout() {
+      window.sessionStorage.clear();
+      this.sesionService.updateSession(false);
+      this.router.navigate(["/login"]);
+      }
+
+      public login(token:string){
+        this.setToken(token);
+        this.sesionService.updateSession(true);
+        this.router.navigate(["/"]);
+        }
+      
 
   private decodePayload(token: string): any {
     const payload = token!.split(".")[1];
@@ -42,4 +65,6 @@ export class TokenService {
     const values = JSON.parse(payloadDecoded);
     return values;
   }
+
+  
 }
